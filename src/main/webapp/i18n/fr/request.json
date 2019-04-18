@@ -1,0 +1,27 @@
+{
+    "getHackedApp": {
+        "request": {
+            "home": {
+                "title": "Requests",
+                "createLabel": "Créer un nouveau Request",
+                "createOrEditLabel": "Créer ou éditer un Request"
+            },
+            "created": "Un nouveau Request a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Request avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Request avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Request {{ id }} ?"
+            },
+            "detail": {
+                "title": "Request"
+            },
+            "title": "Title",
+            "pricing": "Pricing",
+            "description": "Description",
+            "date": "Date",
+            "scope": "Scope",
+            "thirdParty": "Third Party",
+            "report": "Report"
+        }
+    }
+}
