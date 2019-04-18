@@ -1,0 +1,38 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "app.iut.gethacked",
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "GetHacked",
+        "packageName": "app.iut.gethacked",
+        "packageFolder": "app/iut/gethacked",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": false,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "MDc0YzYzNDU0ZWYxMDc4NTg0Y2Y5YjdkODgxYWVhMDEyMzliY2ZmOGRhMmFiNThjYjVjMWJiZGE5Njc4YjhmN2QwYmI1OTM1ODJlYjAzNzc5YTU3MDUxYThhYjliMzE4NzgzZmI0NTJmZjYzNjU4MDBjODI5Mjg1Y2FiODJjNTk=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en", "fr"]
+    }
+}

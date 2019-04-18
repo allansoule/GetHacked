@@ -1,0 +1,38 @@
+entity User {
+
+}
+
+entity UserThirdPartyMembership {
+	type String,
+}
+
+entity ThirdParty {
+	 //raison sociale
+     name String,
+     
+}
+
+entity Report {
+	title String,
+    date Instant,
+    body String
+}
+
+entity Request {
+	title String,
+	pricing String,
+    description String,
+    date Instant,
+    scope String, //Ce qu'on a le droit d'attaquer, et la façon dont on a le droit de le faire
+}
+
+relationship ManyToOne {
+	UserThirdPartyMembership to User,
+    UserThirdPartyMembership to ThirdParty,
+    ThirdParty to Report,
+    ThirdParty to Request,
+}
+
+relationship ManyToMany {
+    Report to Request,
+}
