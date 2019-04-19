@@ -9,9 +9,9 @@ import { OurThirdPartyService } from 'app/our-third-party/our-third-party.servic
     styles: []
 })
 export class CreateRequestComponent implements OnInit {
-    constructor(private service: CreateRequestService) {}
     onSubmit(form: NgForm) {
         this.service.setRequests(form.value);
     }
     ngOnInit() {}
+    constructor(private service: CreateRequestService) {}
 }

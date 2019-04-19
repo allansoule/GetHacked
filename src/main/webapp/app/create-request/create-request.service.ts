@@ -20,21 +20,15 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class CreateRequestService {
-    account: Account;
-    constructor(private http: HttpClient, private accountService) {}
+    constructor(private http: HttpClient) {}
     setRequests(f: NgForm) {
         this.http.post(SERVER_API_URL + '/api/requests', JSON.stringify(f), httpOptions).subscribe(
             () => {
-                console.log('Enregistrement terminé !');
+                alert('Votre request a été ajoutée !');
             },
             error => {
                 console.log('Erreur ! : ' + error);
             }
         );
-    }
-    getCurrentLogin() {
-        this.accountService.identity().then(account => {
-            this.account = account;
-        });
     }
 }
