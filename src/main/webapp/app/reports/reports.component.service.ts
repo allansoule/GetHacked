@@ -1,16 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { HttpClient } from '@angular/common/http';
-import { IRequest } from 'app/shared/model/request.model';
 import { HttpHeaders } from '@angular/common/http';
 import { CreateRequest } from 'app/create-request/CreateRequest';
 import { NgForm } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Moment } from 'moment';
 import moment = require('moment');
 
 const httpOptions = {
@@ -21,18 +14,18 @@ const httpOptions = {
 @Injectable({
     providedIn: 'root'
 })
-export class CreateRequestService {
+export class ReportsService {
     myJSONObject: CreateRequest;
     receivedJSON: JSON;
     modifiedJSON: string;
     constructor(private http: HttpClient) {}
-    setRequests(f: NgForm) {
+    setReport(f: NgForm) {
         this.myJSONObject = JSON.parse(JSON.stringify(f));
         this.myJSONObject.date = moment().local();
         this.modifiedJSON = JSON.stringify(this.myJSONObject);
-        this.http.post(SERVER_API_URL + '/api/requests', this.modifiedJSON, httpOptions).subscribe(
+        this.http.post(SERVER_API_URL + '/api/reports', this.modifiedJSON, httpOptions).subscribe(
             () => {
-                alert('Votre request a été ajoutée !');
+                alert('Votre report a été ajoutée !');
             },
             error => {
                 console.log('Erreur ! : ' + error);

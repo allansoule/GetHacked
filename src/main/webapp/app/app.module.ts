@@ -23,6 +23,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 import { OurThirdPartyComponent } from 'app/our-third-party/our-third-party.component';
 import { RequestsComponent } from './requests/requests.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
     imports: [
@@ -52,7 +53,8 @@ import { CreateRequestComponent } from './create-request/create-request.componen
         FooterComponent,
         OurThirdPartyComponent,
         RequestsComponent,
-        CreateRequestComponent
+        CreateRequestComponent,
+        ReportsComponent
     ],
     providers: [
         {
