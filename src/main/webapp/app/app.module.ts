@@ -20,9 +20,9 @@ import { GetHackedEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
-import { OurThirdPartyService } from 'app/our-third-party/our-third-party.service';
 import { OurThirdPartyComponent } from 'app/our-third-party/our-third-party.component';
 import { RequestsComponent } from './requests/requests.component';
+import { CreateRequestComponent } from './create-request/create-request.component';
 
 @NgModule({
     imports: [
@@ -51,7 +51,8 @@ import { RequestsComponent } from './requests/requests.component';
         ActiveMenuDirective,
         FooterComponent,
         OurThirdPartyComponent,
-        RequestsComponent
+        RequestsComponent,
+        CreateRequestComponent
     ],
     providers: [
         {
