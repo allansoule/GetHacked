@@ -22,6 +22,7 @@ import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 import { OurThirdPartyService } from 'app/our-third-party/our-third-party.service';
 import { OurThirdPartyComponent } from 'app/our-third-party/our-third-party.component';
+import { RequestsComponent } from './requests/requests.component';
 
 @NgModule({
     imports: [
@@ -49,7 +50,8 @@ import { OurThirdPartyComponent } from 'app/our-third-party/our-third-party.comp
         PageRibbonComponent,
         ActiveMenuDirective,
         FooterComponent,
-        OurThirdPartyComponent
+        OurThirdPartyComponent,
+        RequestsComponent
     ],
     providers: [
         {
