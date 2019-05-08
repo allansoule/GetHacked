@@ -1,0 +1,38 @@
+{
+    "name": "ThirdParty",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "userThirdPartyMembership",
+            "otherEntityRelationshipName": "thirdParty",
+            "relationshipName": "userThirdPartyMembership"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "report",
+            "otherEntityRelationshipName": "thirdParty",
+            "relationshipName": "report"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "request",
+            "otherEntityRelationshipName": "thirdParty",
+            "relationshipName": "request"
+        }
+    ],
+    "changelogDate": "20190418123627",
+    "entityTableName": "third_party",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

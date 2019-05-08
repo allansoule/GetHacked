@@ -1,0 +1,42 @@
+{
+    "name": "Report",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "thirdParty",
+            "otherEntityRelationshipName": "report",
+            "relationshipName": "thirdParty",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "request",
+            "otherEntityRelationshipName": "report",
+            "relationshipName": "request",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190418123628",
+    "entityTableName": "report",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

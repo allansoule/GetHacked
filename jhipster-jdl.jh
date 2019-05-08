@@ -29,10 +29,10 @@ entity Request {
 relationship ManyToOne {
 	UserThirdPartyMembership to User,
     UserThirdPartyMembership to ThirdParty,
-    ThirdParty to Report,
-    ThirdParty to Request,
+    Report to ThirdParty,
+    Request to ThirdParty,
 }
 
-relationship ManyToMany {
+relationship ManyToOne {
     Report to Request,
 }

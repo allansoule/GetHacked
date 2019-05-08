@@ -1,0 +1,24 @@
+{
+    "getHackedApp": {
+        "thirdParty": {
+            "home": {
+                "title": "ThirdParties",
+                "createLabel": "Créer un nouveau Third Party",
+                "createOrEditLabel": "Créer ou éditer un Third Party"
+            },
+            "created": "Un nouveau Third Party a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Third Party avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Third Party avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Third Party {{ id }} ?"
+            },
+            "detail": {
+                "title": "Third Party"
+            },
+            "name": "Name",
+            "userThirdPartyMembership": "User Third Party Membership",
+            "report": "Report",
+            "request": "Request"
+        }
+    }
+}

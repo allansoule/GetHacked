@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userThirdPartyMembership">
+            <h2><span jhiTranslate="getHackedApp.userThirdPartyMembership.detail.title">User Third Party Membership</span> {{userThirdPartyMembership.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="getHackedApp.userThirdPartyMembership.type">Type</span></dt>
+                <dd>
+                    <span>{{userThirdPartyMembership.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="getHackedApp.userThirdPartyMembership.user">User</span></dt>
+                <dd>
+                    {{userThirdPartyMembership.user?.id}}
+                </dd>
+                <dt><span jhiTranslate="getHackedApp.userThirdPartyMembership.thirdParty">Third Party</span></dt>
+                <dd>
+                    <div *ngIf="userThirdPartyMembership.thirdParty">
+                        <a [routerLink]="['/third-party', userThirdPartyMembership.thirdParty?.id, 'view']">{{userThirdPartyMembership.thirdParty?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-third-party-membership', userThirdPartyMembership.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "getHackedApp": {
+        "userThirdPartyMembership": {
+            "home": {
+                "title": "User Third Party Memberships",
+                "createLabel": "Create a new User Third Party Membership",
+                "createOrEditLabel": "Create or edit a User Third Party Membership"
+            },
+            "created": "A new User Third Party Membership is created with identifier {{ param }}",
+            "updated": "A User Third Party Membership is updated with identifier {{ param }}",
+            "deleted": "A User Third Party Membership is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Third Party Membership {{ id }}?"
+            },
+            "detail": {
+                "title": "User Third Party Membership"
+            },
+            "type": "Type",
+            "user": "User",
+            "thirdParty": "Third Party"
+        }
+    }
+}
