@@ -91,7 +91,7 @@ public class RequestResource {
     @GetMapping("/requests/{type}")
     public List<Request> getRequestByType(@PathVariable String type) {
         log.debug("REST request to get all Requests");
-        return requestRepository
+        return requestRepository.
     }
 
     /**
