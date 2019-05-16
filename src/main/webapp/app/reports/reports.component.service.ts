@@ -4,7 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { CreateRequest } from 'app/create-request/CreateRequest';
 import { NgForm } from '@angular/forms';
+import { Reports } from 'app/reports/reports';
 import moment = require('moment');
+import { Request } from 'app/shared/model/request.model';
+import { IRequest } from 'app/shared/model/request.model';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -15,11 +18,11 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class ReportsService {
-    myJSONObject: CreateRequest;
-    receivedJSON: JSON;
+    myJSONObject: Reports;
     modifiedJSON: string;
+    request: Request;
     constructor(private http: HttpClient) {}
-    setReport(f: NgForm) {
+    setReport(f: NgForm, id: number) {
         this.myJSONObject = JSON.parse(JSON.stringify(f));
         this.myJSONObject.date = moment().local();
         this.modifiedJSON = JSON.stringify(this.myJSONObject);

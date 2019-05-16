@@ -32,10 +32,11 @@ export class CreateRequestService {
         this.modifiedJSON = JSON.stringify(this.myJSONObject);
         this.http.post(SERVER_API_URL + '/api/requests', this.modifiedJSON, httpOptions).subscribe(
             () => {
-                alert('Votre request a été ajoutée !');
+                return true;
             },
             error => {
                 console.log('Erreur ! : ' + error);
+                return false;
             }
         );
     }

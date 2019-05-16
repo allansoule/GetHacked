@@ -24,6 +24,8 @@ import { OurThirdPartyComponent } from 'app/our-third-party/our-third-party.comp
 import { RequestsComponent } from './requests/requests.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 import { ReportsComponent } from './reports/reports.component';
+import { SelectReportsComponent } from './select-reports/select-reports.component';
+import { RequestDetailComponent } from './request-detail/request-detail.component';
 
 @NgModule({
     imports: [
@@ -54,7 +56,9 @@ import { ReportsComponent } from './reports/reports.component';
         OurThirdPartyComponent,
         RequestsComponent,
         CreateRequestComponent,
-        ReportsComponent
+        ReportsComponent,
+        SelectReportsComponent,
+        RequestDetailComponent
     ],
     providers: [
         {

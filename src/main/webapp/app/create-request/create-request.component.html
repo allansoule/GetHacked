@@ -1,18 +1,17 @@
+<jhi-alert></jhi-alert>
+
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <label>Title</label>
-    <input type="text" name="title" ngModel>
+    <label>Titre</label>
+    <input type="text" class="form-control" name="title" ngModel>
     <br>
-    <label>Princing</label>
-    <input type="text" name="pricing" ngModel>
+    <label>Prix</label>
+    <textarea type="text" class="form-control" name="pricing" ngModel></textarea>
     <br>
     <label>Description</label>
-    <input type="text" name="description" ngModel>
+    <textarea type="text" class="form-control" name="description" ngModel></textarea>
     <br>
     <label>Scope</label>
-    <input type="text" name="scope" ngModel>
+    <textarea type="text" class="form-control" name="scope" ngModel></textarea>
     <br>
-    <label>ThirdParty</label>
-    <input type="text" name="thirdparty" ngModel>
-
     <button class="btn btn-primary" type="submit">Enregistrer</button>
 </form>

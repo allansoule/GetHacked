@@ -79,7 +79,7 @@ public class ReportResource {
      */
     @GetMapping("/reports")
     public List<Report> getAllReports() {
-        log.debug("REST request to get all Reports");
+        log.debug("REST request to get all SelectReports");
         return reportRepository.findAll();
     }
 

@@ -1,11 +1,11 @@
 {
     "home": {
-        "title": "Bienvenue, Java Hipster !",
-        "subtitle": "Ceci est votre page d'accueil",
+        "title": "Bienvenue, sur GetHacked !",
+        "subtitle": "",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },
-        "question": "Si vous avez des questions à propos de JHipster :",
+        "goal": "Posez vos annonces en tant qu'entreprise, et répondez y en tant que hacker.",
         "link": {
             "homepage": "Page d'accueil de JHipster",
             "stackoverflow": "JHipster sur Stack Overflow",

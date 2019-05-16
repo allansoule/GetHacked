@@ -1,13 +1,9 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <label>Title</label>
-    <input type="text" name="title" ngModel>
+    <label>Titre</label>
+    <input type="text" class="form-control" name="title" ngModel>
     <br>
-    <label>Body</label>
-    <input type="text" name="body" ngModel>
+    <label>Contenu du rapport</label>
+    <textarea type="text" class="form-control" name="body" ngModel></textarea>
     <br>
-
-    <label>ThirdParty</label>
-    <input type="text" name="thirdparty" ngModel>
-
     <button class="btn btn-primary" type="submit">Enregistrer</button>
 </form>

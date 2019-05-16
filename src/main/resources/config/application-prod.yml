@@ -115,7 +115,7 @@ jhipster:
         from: GetHacked@localhost
         base-url: http://my-server-url-to-change # Modify according to your server's URL
     metrics:
-        logs: # Reports metrics in the logs
+        logs: # SelectReports metrics in the logs
             enabled: false
             report-frequency: 60 # in seconds
     logging:

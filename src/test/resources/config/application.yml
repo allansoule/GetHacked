@@ -91,7 +91,7 @@ jhipster:
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics:
-        logs: # Reports metrics in the logs
+        logs: # SelectReports metrics in the logs
             enabled: true
             report-frequency: 60 # in seconds
 
