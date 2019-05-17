@@ -1,3 +1,5 @@
+import { IReport, Report } from 'app/shared/model/report.model';
+
 export class Requests {
     id: number;
     title: string;
@@ -5,4 +7,5 @@ export class Requests {
     pricing: string;
     scope: string;
     thirdparty: number;
+    reports: IReport;
 }

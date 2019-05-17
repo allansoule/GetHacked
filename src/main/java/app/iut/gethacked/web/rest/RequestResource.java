@@ -88,11 +88,7 @@ public class RequestResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of requests in body
      */
-    @GetMapping("/requests/{type}")
-    public List<Request> getRequestByType(@PathVariable String type) {
-        log.debug("REST request to get all Requests");
-        return requestRepository.
-    }
+
 
     /**
      * GET  /requests/:id : get the "id" request.
