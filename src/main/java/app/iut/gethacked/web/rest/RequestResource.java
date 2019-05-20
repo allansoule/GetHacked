@@ -1,14 +1,21 @@
 package app.iut.gethacked.web.rest;
 import app.iut.gethacked.domain.Request;
+import app.iut.gethacked.domain.Request_;
 import app.iut.gethacked.repository.RequestRepository;
+import app.iut.gethacked.service.dto.SearchCriteriaDTO;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -86,9 +93,31 @@ public class RequestResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of requests in body
      */
-    @GetMapping("/requests/{type}")
-    public List<Request> getRequestByType(@PathVariable String type) {
-        return requestRepository.findByType(type);
+    @PostMapping("/requests/search")
+    public List<Request> getRequestByType(@RequestBody SearchCriteriaDTO search) {
+        Specification<Request> spec = new Specification<Request>() {
+            @Override
+            public Predicate toPredicate(Root<Request> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                Predicate res = null;
+                if (search.scopeEqual != null){
+                    Predicate p = cb.equal(root.get(Request_.scope), search.scopeEqual);
+                    res = (res == null) ? p : cb.and(res,p);
+                }
+                if (search.scopeLike != null){
+                    Predicate p = cb.like(root.get(Request_.scope), search.scopeLike);
+                    res = (res == null) ? p : cb.and(res,p);
+                }
+                if (search.title != null){
+                    Predicate p = cb.equal(root.get(Request_.title), search.title);
+                    res = (res == null) ? p : cb.and(res,p);
+                }
+                    return res;
+
+            }
+        };
+
+        List<Request> requests = requestRepository.findAll(spec);
+        return requests;
     }
 
     /**
