@@ -22,10 +22,8 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class RequestResource {
 
-    private final Logger log = LoggerFactory.getLogger(RequestResource.class);
-
     private static final String ENTITY_NAME = "request";
-
+    private final Logger log = LoggerFactory.getLogger(RequestResource.class);
     private final RequestRepository requestRepository;
 
     public RequestResource(RequestRepository requestRepository) {
@@ -90,8 +88,7 @@ public class RequestResource {
      */
     @GetMapping("/requests/{type}")
     public List<Request> getRequestByType(@PathVariable String type) {
-        log.debug("REST request to get all Requests");
-        return requestRepository.
+        return requestRepository.findByType(type);
     }
 
     /**
