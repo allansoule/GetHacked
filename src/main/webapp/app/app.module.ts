@@ -6,7 +6,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
-
+import { GethackedService } from 'app/features/gethacked.service';
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
@@ -26,6 +26,7 @@ import { CreateRequestComponent } from './create-request/create-request.componen
 import { ReportsComponent } from './reports/reports.component';
 import { SelectReportsComponent } from './select-reports/select-reports.component';
 import { RequestDetailComponent } from './request-detail/request-detail.component';
+import { RegisterThirdpartyComponent } from 'app/features/thirdparty/register-thirdparty.component';
 
 @NgModule({
     imports: [
@@ -58,7 +59,8 @@ import { RequestDetailComponent } from './request-detail/request-detail.componen
         CreateRequestComponent,
         ReportsComponent,
         SelectReportsComponent,
-        RequestDetailComponent
+        RequestDetailComponent,
+        RegisterThirdpartyComponent
     ],
     providers: [
         {
@@ -80,7 +82,8 @@ import { RequestDetailComponent } from './request-detail/request-detail.componen
             provide: HTTP_INTERCEPTORS,
             useClass: NotificationInterceptor,
             multi: true
-        }
+        },
+        GethackedService
     ],
     bootstrap: [JhiMainComponent]
 })
