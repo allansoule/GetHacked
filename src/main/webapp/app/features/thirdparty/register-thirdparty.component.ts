@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { GethackedService } from 'app/features/gethacked.service';
 
 @Component({
-    selector: 'jhi-register-request',
+    selector: 'jhi-register-thirdparty',
     templateUrl: './register-thirdparty.component.html',
     styles: []
 })

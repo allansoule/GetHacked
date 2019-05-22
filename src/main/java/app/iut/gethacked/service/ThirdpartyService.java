@@ -32,10 +32,15 @@ public class ThirdpartyService {
 //    }
 
     public ThirdParty registerThirdPartyMember(RegisterThirdPartyMemberRequestDTO request){
-        User ownerToAdd = userRepository.findOneByLogin(request.ownerToAdd).get();
+        User ownerToAdd;
+        try {
+            ownerToAdd = userRepository.findOneByLogin(request.ownerToAdd).get();
+        }catch(Exception ex){
+            throw new RuntimeException("User not found", ex);
+        }
         ThirdParty thirdParty = new ThirdParty();
         thirdParty.setName(request.name);
-        UserThirdPartyMembership member = new UserThirdPartyMembership(thirdParty,ownerToAdd);
+        UserThirdPartyMembership member = new UserThirdPartyMembership(thirdParty,ownerToAdd,request.type);
         thirdParty.getMembers().add(member);
         thirdParty = thirdPartyRepository.save(thirdParty);
         return thirdParty;

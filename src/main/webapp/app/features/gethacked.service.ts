@@ -36,6 +36,6 @@ export class GethackedService {
     public resourceUrl = SERVER_API_URL + 'api/gethacked';
     constructor(private http: HttpClient) {}
     registerThirdParty(req: RegisterThirdPartyRequestDTO): Observable<HttpResponse<RegisterThirdPartyResponseDTO>> {
-        return this.http.post<RegisterThirdPartyResponseDTO>(SERVER_API_URL + '/register-thirdparty', req, { observe: 'response' });
+        return this.http.post<RegisterThirdPartyResponseDTO>(this.resourceUrl + '/register-thirdparty', req, { observe: 'response' });
     }
 }

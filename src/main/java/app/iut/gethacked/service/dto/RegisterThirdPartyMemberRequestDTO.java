@@ -4,7 +4,7 @@ public class RegisterThirdPartyMemberRequestDTO {
 
     public String name;
 
-    public String socialReason;
+    public String type;
 
     public String ownerToAdd;
 }

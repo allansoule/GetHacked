@@ -32,9 +32,10 @@ public class UserThirdPartyMembership implements Serializable {
     @JsonIgnoreProperties("userThirdPartyMemberships")
     private ThirdParty thirdParty;
 
-    public UserThirdPartyMembership(ThirdParty thirdParty, User user) {
+    public UserThirdPartyMembership(ThirdParty thirdParty, User user, String type) {
         this.thirdParty = thirdParty;
         this.user = user;
+        this.type = type;
     }
 
     public UserThirdPartyMembership(){}
