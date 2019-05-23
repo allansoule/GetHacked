@@ -6,7 +6,7 @@ import { Requests } from 'app/requests/requests';
 @Component({
     selector: 'jhi-requests',
     templateUrl: './requests.component.html',
-    styles: []
+    styleUrls: ['requests.css']
 })
 export class RequestsComponent implements OnInit {
     result: Requests[];

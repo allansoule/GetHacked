@@ -61,6 +61,19 @@ public class RequestResource {
     }
 
     /**
+     * GET  /requests/:id : get the "id" request.
+     *
+     * @param id the id of the request to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the request, or with status 404 (Not Found)
+     */
+    @GetMapping("/requests/{id}")
+    public ResponseEntity<Request> getRequest(@PathVariable Long id) {
+        log.debug("REST request to get Request : {}", id);
+        Optional<Request> request = requestRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(request);
+    }
+
+    /**
      * PUT  /requests : Updates an existing request.
      *
      * @param request the request to update

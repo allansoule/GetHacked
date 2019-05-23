@@ -2,14 +2,11 @@ import { Injectable } from '@angular/core';
 import { SERVER_API_URL } from 'app/app.constants';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { CreateRequest } from 'app/create-request/CreateRequest';
 import { NgForm } from '@angular/forms';
 import { Reports } from 'app/reports/reports';
 import moment = require('moment');
 import { Request } from 'app/shared/model/request.model';
-import { IRequest } from 'app/shared/model/request.model';
-import { Observable, Subscription } from 'rxjs';
-import { Requests } from 'app/requests/requests';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -24,6 +21,7 @@ export class ReportsService {
     modifiedJSON: string;
     request: Request;
     result: Request;
+
     constructor(private http: HttpClient) {}
     setReport(f: NgForm, idRequest: number) {
         this.myJSONObject = JSON.parse(JSON.stringify(f));

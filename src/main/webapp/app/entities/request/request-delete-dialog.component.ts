@@ -44,7 +44,7 @@ export class RequestDeletePopupComponent implements OnInit, OnDestroy {
         this.activatedRoute.data.subscribe(({ request }) => {
             setTimeout(() => {
                 this.ngbModalRef = this.modalService.open(RequestDeleteDialogComponent as Component, { size: 'lg', backdrop: 'static' });
-                this.ngbModalRef.componentInstance.request = request;
+                this.ngbModalRef.componentInstance.requests = request;
                 this.ngbModalRef.result.then(
                     result => {
                         this.router.navigate(['/request', { outlets: { popup: null } }]);
