@@ -17,6 +17,7 @@ public class GetHackedController {
 
     private final ThirdpartyService delegate;
 
+
     public GetHackedController(ThirdpartyService delegate) {
         this.delegate = delegate;
     }
@@ -27,6 +28,8 @@ public class GetHackedController {
         ThirdParty thirdParty = delegate.registerThirdPartyMember(req);
         return new RegisterThirdPartyMemberResponseDTO(thirdParty.getId());
     }
+
+
 }
 
 

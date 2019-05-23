@@ -23,13 +23,12 @@ public class ThirdpartyService {
     @Autowired
     ThirdPartyRepository thirdPartyRepository;
 
-//    @RolesAllowed("ROLE_PENTESTER")
-//    public ThirdParty thirdpartiesOfCurrentUser(){
-//        ThirdParty res;
-//        User jhiUser = userService.getUserWithAuthorities().get();
-//        res = thirdPartyRepository.findAllByThirdParty_UserThirdPartyMemberships_User(jhiUser);
-//        return res;
-//    }
+    public ThirdParty thirdpartyOfCurrentUser(){
+       ThirdParty res;
+       User jhiUser = userService.getUserWithAuthorities().get();
+       res = thirdPartyRepository.findAllByMembers_User(jhiUser).get(0);
+     return res;
+    }
 
     public ThirdParty registerThirdPartyMember(RegisterThirdPartyMemberRequestDTO request){
         User ownerToAdd;
