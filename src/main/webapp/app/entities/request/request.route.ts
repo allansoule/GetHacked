@@ -34,7 +34,7 @@ export const requestRoute: Routes = [
         component: RequestComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'getHackedApp.request.home.title'
+            pageTitle: 'getHackedApp.requests.css.home.title'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const requestRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'getHackedApp.request.home.title'
+            pageTitle: 'getHackedApp.requests.css.home.title'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const requestRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'getHackedApp.request.home.title'
+            pageTitle: 'getHackedApp.requests.css.home.title'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const requestRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'getHackedApp.request.home.title'
+            pageTitle: 'getHackedApp.requests.css.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const requestPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'getHackedApp.request.home.title'
+            pageTitle: 'getHackedApp.requests.css.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
