@@ -3,19 +3,19 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="example-container">
         <mat-form-field>
-            <input matInput placeholder="Title" name="title">
+            <input matInput placeholder="Title" name="title" ngModel>
         </mat-form-field>
 
         <mat-form-field>
-            <textarea matInput placeholder="Pricing" name="pricing" rows="5"></textarea>
+            <textarea matInput placeholder="Pricing" name="pricing" rows="5" ngModel></textarea>
         </mat-form-field>
 
         <mat-form-field>
-            <textarea matInput placeholder="Description" name="description" rows="5"></textarea>
+            <textarea matInput placeholder="Description" name="description" rows="5" ngModel></textarea>
         </mat-form-field>
 
         <mat-form-field>
-            <textarea matInput placeholder="Scope" name="scope" rows="5"></textarea>
+            <textarea matInput placeholder="Scope" name="scope" rows="5" ngModel></textarea>
         </mat-form-field>
     </div>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
