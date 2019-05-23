@@ -5,7 +5,6 @@ import app.iut.gethacked.repository.RequestRepository;
 import app.iut.gethacked.service.dto.SearchCriteriaDTO;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.domain.Specification;
@@ -19,7 +18,6 @@ import javax.persistence.criteria.Root;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * REST controller for managing Request.
@@ -53,19 +51,6 @@ public class RequestResource {
         return ResponseEntity.created(new URI("/api/requests/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
-    }
-
-    /**
-     * GET  /requests/:id : get the "id" request.
-     *
-     * @param id the id of the request to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the request, or with status 404 (Not Found)
-     */
-    @GetMapping("/requests/{id}")
-    public ResponseEntity<Request> getRequest(@PathVariable Long id) {
-        log.debug("REST request to get Request : {}", id);
-        Optional<Request> request = requestRepository.findById(id);
-        return ResponseUtil.wrapOrNotFound(request);
     }
 
     /**

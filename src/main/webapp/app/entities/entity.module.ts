@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
                 loadChildren: './report/report.module#GetHackedReportModule'
             },
             {
-                path: 'requests.css',
+                path: 'request',
                 loadChildren: './request/request.module#GetHackedRequestModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */

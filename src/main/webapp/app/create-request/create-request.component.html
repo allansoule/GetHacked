@@ -1,22 +1,17 @@
 <jhi-alert></jhi-alert>
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <div class="example-container">
-        <mat-form-field>
-            <input matInput placeholder="Title" name="title">
-        </mat-form-field>
-
-        <mat-form-field>
-            <textarea matInput placeholder="Pricing" name="pricing" rows="5"></textarea>
-        </mat-form-field>
-
-        <mat-form-field>
-            <textarea matInput placeholder="Description" name="description" rows="5"></textarea>
-        </mat-form-field>
-
-        <mat-form-field>
-            <textarea matInput placeholder="Scope" name="scope" rows="5"></textarea>
-        </mat-form-field>
-    </div>
+    <label>Titre</label>
+    <input type="text" class="form-control" name="title" ngModel>
+    <br>
+    <label>Prix</label>
+    <textarea type="text" class="form-control" name="pricing" ngModel></textarea>
+    <br>
+    <label>Description</label>
+    <textarea type="text" class="form-control" name="description" ngModel></textarea>
+    <br>
+    <label>Scope</label>
+    <textarea type="text" class="form-control" name="scope" ngModel></textarea>
+    <br>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
 </form>

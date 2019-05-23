@@ -151,7 +151,7 @@ describe('Component Tests', () => {
 
             // THEN
             expect(mockActiveModal.dismissSpy).toHaveBeenCalledWith('to state requestReset');
-            expect(mockRouter.navigateSpy).toHaveBeenCalledWith(['/reset', 'requests.css']);
+            expect(mockRouter.navigateSpy).toHaveBeenCalledWith(['/reset', 'request']);
         });
     });
 });

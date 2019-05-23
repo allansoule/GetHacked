@@ -1,4 +1,4 @@
-import { IReport } from 'app/shared/model/report.model';
+import { IReport, Report } from 'app/shared/model/report.model';
 
 export class Requests {
     id: number;
