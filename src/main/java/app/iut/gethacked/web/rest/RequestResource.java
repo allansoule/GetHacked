@@ -1,10 +1,13 @@
 package app.iut.gethacked.web.rest;
+import app.iut.gethacked.domain.Report;
 import app.iut.gethacked.domain.Request;
 import app.iut.gethacked.domain.Request_;
+import app.iut.gethacked.repository.ReportRepository;
 import app.iut.gethacked.repository.RequestRepository;
 import app.iut.gethacked.service.dto.SearchCriteriaDTO;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
+import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.domain.Specification;
@@ -17,7 +20,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * REST controller for managing Request.
@@ -29,9 +34,11 @@ public class RequestResource {
     private static final String ENTITY_NAME = "request";
     private final Logger log = LoggerFactory.getLogger(RequestResource.class);
     private final RequestRepository requestRepository;
+    private final ReportRepository reportRepository;
 
-    public RequestResource(RequestRepository requestRepository) {
+    public RequestResource(RequestRepository requestRepository, ReportRepository reportRepository) {
         this.requestRepository = requestRepository;
+        this.reportRepository = reportRepository;
     }
 
     /**
@@ -75,6 +82,32 @@ public class RequestResource {
     }
 
     /**
+     * GET  /requests/:id : get the "id" request.
+     *
+     * @param id the id of the request to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the request, or with status 404 (Not Found)
+     */
+    @GetMapping("/requests/{id}")
+    public ResponseEntity<Request> getRequest(@PathVariable Long id) {
+        log.debug("REST request to get Request : {}", id);
+        Optional<Request> request = requestRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(request);
+    }
+
+    /**
+     * GET  /requests/:id : get the "id" request.
+     *
+     * @param id the id of the request to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the request, or with status 404 (Not Found)
+     */
+    @GetMapping("/requests/reports/{id}")
+    public List<Report> getReportsFromRequest(@PathVariable Long id) {
+        log.debug("REST request to get Request : {}", id);
+        List<Report> request = reportRepository.findReportsForRequest(requestRepository.findById(id).get());
+        return request;
+    }
+
+    /**
      * GET  /requests : get all the requests.
      *
      * @return the ResponseEntity with status 200 (OK) and the list of requests in body
@@ -112,6 +145,7 @@ public class RequestResource {
 
             }
         };
+
 
         List<Request> requests = requestRepository.findAll(spec);
         return requests;

@@ -1,6 +1,7 @@
 package app.iut.gethacked.web.rest;
 import app.iut.gethacked.domain.Report;
 import app.iut.gethacked.repository.ReportRepository;
+import app.iut.gethacked.repository.RequestRepository;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -28,14 +29,16 @@ public class ReportResource {
 
     private final ReportRepository reportRepository;
 
-    public ReportResource(ReportRepository reportRepository) {
+    private final RequestRepository requestRepository;
+
+    public ReportResource(ReportRepository reportRepository,RequestRepository requestRepository) {
         this.reportRepository = reportRepository;
+        this.requestRepository = requestRepository;
     }
 
     /**
      * POST  /reports : Create a new report.
-     *
-     * @param report the report to create
+     * create
      * @return the ResponseEntity with status 201 (Created) and with body the new report, or with status 400 (Bad Request) if the report has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
@@ -45,6 +48,26 @@ public class ReportResource {
         if (report.getId() != null) {
             throw new BadRequestAlertException("A new report cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        Report result = reportRepository.save(report);
+        return ResponseEntity.created(new URI("/api/reports/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * POST  /reports : Create a new report.
+     *
+     * @param report the report to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new report, or with status 400 (Bad Request) if the report has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/reports/{idRequest}")
+    public ResponseEntity<Report> createReportforRequest(@PathVariable long idRequest, @RequestBody Report report) throws URISyntaxException {
+        log.debug("REST request to save Report : {}", report);
+        if (report.getId() != null) {
+            throw new BadRequestAlertException("A new report cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        report.setRequest(requestRepository.findById(idRequest).get());
         Report result = reportRepository.save(report);
         return ResponseEntity.created(new URI("/api/reports/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

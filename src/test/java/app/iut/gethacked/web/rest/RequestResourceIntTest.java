@@ -3,6 +3,7 @@ package app.iut.gethacked.web.rest;
 import app.iut.gethacked.GetHackedApp;
 
 import app.iut.gethacked.domain.Request;
+import app.iut.gethacked.repository.ReportRepository;
 import app.iut.gethacked.repository.RequestRepository;
 import app.iut.gethacked.web.rest.errors.ExceptionTranslator;
 
@@ -61,6 +62,9 @@ public class RequestResourceIntTest {
     private RequestRepository requestRepository;
 
     @Autowired
+    private ReportRepository reportRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -82,7 +86,7 @@ public class RequestResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final RequestResource requestResource = new RequestResource(requestRepository);
+        final RequestResource requestResource = new RequestResource(requestRepository,reportRepository);
         this.restRequestMockMvc = MockMvcBuilders.standaloneSetup(requestResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

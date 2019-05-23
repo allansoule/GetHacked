@@ -32,6 +32,14 @@ public class UserThirdPartyMembership implements Serializable {
     @JsonIgnoreProperties("userThirdPartyMemberships")
     private ThirdParty thirdParty;
 
+    public UserThirdPartyMembership(ThirdParty thirdParty, User user, String type) {
+        this.thirdParty = thirdParty;
+        this.user = user;
+        this.type = type;
+    }
+
+    public UserThirdPartyMembership(){}
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

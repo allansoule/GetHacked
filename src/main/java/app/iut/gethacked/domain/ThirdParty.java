@@ -1,8 +1,6 @@
 package app.iut.gethacked.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -26,8 +24,8 @@ public class ThirdParty implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "thirdParty")
-    private Set<UserThirdPartyMembership> userThirdPartyMemberships = new HashSet<>();
+    @OneToMany(mappedBy = "thirdParty",cascade = CascadeType.ALL)
+    private Set<UserThirdPartyMembership> members = new HashSet<>();
     @OneToMany(mappedBy = "thirdParty")
     private Set<Report> reports = new HashSet<>();
     @OneToMany(mappedBy = "thirdParty")
@@ -54,29 +52,29 @@ public class ThirdParty implements Serializable {
         this.name = name;
     }
 
-    public Set<UserThirdPartyMembership> getUserThirdPartyMemberships() {
-        return userThirdPartyMemberships;
+    public Set<UserThirdPartyMembership> getMembers() {
+        return members;
     }
 
     public ThirdParty userThirdPartyMemberships(Set<UserThirdPartyMembership> userThirdPartyMemberships) {
-        this.userThirdPartyMemberships = userThirdPartyMemberships;
+        this.members = userThirdPartyMemberships;
         return this;
     }
 
     public ThirdParty addUserThirdPartyMembership(UserThirdPartyMembership userThirdPartyMembership) {
-        this.userThirdPartyMemberships.add(userThirdPartyMembership);
+        this.members.add(userThirdPartyMembership);
         userThirdPartyMembership.setThirdParty(this);
         return this;
     }
 
     public ThirdParty removeUserThirdPartyMembership(UserThirdPartyMembership userThirdPartyMembership) {
-        this.userThirdPartyMemberships.remove(userThirdPartyMembership);
+        this.members.remove(userThirdPartyMembership);
         userThirdPartyMembership.setThirdParty(null);
         return this;
     }
 
-    public void setUserThirdPartyMemberships(Set<UserThirdPartyMembership> userThirdPartyMemberships) {
-        this.userThirdPartyMemberships = userThirdPartyMemberships;
+    public void setMembers(Set<UserThirdPartyMembership> members) {
+        this.members = members;
     }
 
     public Set<Report> getReports() {

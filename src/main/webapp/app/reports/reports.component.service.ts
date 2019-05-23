@@ -25,16 +25,11 @@ export class ReportsService {
     request: Request;
     result: Request;
     constructor(private http: HttpClient) {}
-    getRequestObject(id): Observable<Request> {
-        return this.http.get<Request>(SERVER_API_URL + '/api/requests/' + id);
-    }
     setReport(f: NgForm, idRequest: number) {
         this.myJSONObject = JSON.parse(JSON.stringify(f));
         this.myJSONObject.date = moment().local();
-        this.getRequestObject(idRequest).subscribe(res => (this.result = res));
-        this.myJSONObject.request = this.result;
         this.modifiedJSON = JSON.stringify(this.myJSONObject);
-        this.http.post(SERVER_API_URL + '/api/reports', this.modifiedJSON, httpOptions).subscribe(
+        this.http.post(SERVER_API_URL + '/api/reports/' + idRequest, this.modifiedJSON, httpOptions).subscribe(
             () => {
                 alert('Votre rapport a été envoyé !');
             },
