@@ -4,6 +4,8 @@ import app.iut.gethacked.domain.Request;
 import app.iut.gethacked.domain.Request_;
 import app.iut.gethacked.repository.ReportRepository;
 import app.iut.gethacked.repository.RequestRepository;
+import app.iut.gethacked.repository.ThirdPartyRepository;
+import app.iut.gethacked.service.ThirdpartyService;
 import app.iut.gethacked.service.dto.SearchCriteriaDTO;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
@@ -20,7 +22,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,10 +36,13 @@ public class RequestResource {
     private final Logger log = LoggerFactory.getLogger(RequestResource.class);
     private final RequestRepository requestRepository;
     private final ReportRepository reportRepository;
-
-    public RequestResource(RequestRepository requestRepository, ReportRepository reportRepository) {
+    private final ThirdPartyRepository thirdPartyRepository;
+    private final ThirdpartyService thirdPartyService;
+    public RequestResource(RequestRepository requestRepository, ReportRepository reportRepository,ThirdPartyRepository thirdPartyRepository,ThirdpartyService thirdPartyService) {
         this.requestRepository = requestRepository;
         this.reportRepository = reportRepository;
+        this.thirdPartyRepository = thirdPartyRepository;
+        this.thirdPartyService = thirdPartyService;
     }
 
     /**
@@ -54,10 +58,22 @@ public class RequestResource {
         if (request.getId() != null) {
             throw new BadRequestAlertException("A new request cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        request.setThirdParty(thirdPartyService.thirdpartyOfCurrentUser());
         Request result = requestRepository.save(request);
         return ResponseEntity.created(new URI("/api/requests/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
+    }
+
+    /**
+     * POST  /requests : Create a new request.
+     *
+     * @return the ResponseEntity with status 201 (Created) and with body the new request, or with status 400 (Bad Request) if the request has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @GetMapping("/requests/third-party/{id}")
+    public List<Request> getRequestByThirdParty(@PathVariable long id) throws URISyntaxException {
+        return requestRepository.findRequestByThirdParty(thirdPartyRepository.findById(id).get());
     }
 
     /**

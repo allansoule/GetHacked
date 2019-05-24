@@ -2,6 +2,7 @@ package app.iut.gethacked.web.rest;
 import app.iut.gethacked.domain.Report;
 import app.iut.gethacked.repository.ReportRepository;
 import app.iut.gethacked.repository.RequestRepository;
+import app.iut.gethacked.service.ThirdpartyService;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -27,13 +27,16 @@ public class ReportResource {
 
     private static final String ENTITY_NAME = "report";
 
+    private final ThirdpartyService thirdpartyService;
+
     private final ReportRepository reportRepository;
 
     private final RequestRepository requestRepository;
 
-    public ReportResource(ReportRepository reportRepository,RequestRepository requestRepository) {
+    public ReportResource(ReportRepository reportRepository,RequestRepository requestRepository,ThirdpartyService thirdpartyService) {
         this.reportRepository = reportRepository;
         this.requestRepository = requestRepository;
+        this.thirdpartyService = thirdpartyService;
     }
 
     /**
@@ -67,6 +70,7 @@ public class ReportResource {
         if (report.getId() != null) {
             throw new BadRequestAlertException("A new report cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        report.setThirdParty(thirdpartyService.thirdpartyOfCurrentUser());
         report.setRequest(requestRepository.findById(idRequest).get());
         Report result = reportRepository.save(report);
         return ResponseEntity.created(new URI("/api/reports/" + result.getId()))
