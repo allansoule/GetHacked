@@ -1,0 +1,40 @@
+.example-card {
+    max-height: 200px;
+    margin: 10px;
+    background: #eeeeee;
+    width: 70%;
+}
+
+.example-header-image {
+    background-image: url('logo.png');
+    background-size: cover;
+}
+
+#buttons {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    bottom: 10px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container > * {
+    width: 70%;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}

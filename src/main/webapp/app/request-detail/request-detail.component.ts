@@ -7,7 +7,7 @@ import { Requests } from 'app/requests/requests';
 @Component({
     selector: 'jhi-request-detail',
     templateUrl: './request-detail.component.html',
-    styles: []
+    styleUrls: ['request-detail.css']
 })
 export class RequestDetailComponent implements OnInit {
     result: Requests;

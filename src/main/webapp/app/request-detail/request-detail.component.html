@@ -1,5 +1,15 @@
-<h1>{{ result.title }}</h1>
-<p>Description : {{ result.description }}</p>
-<p>Prix : {{ result.pricing }}</p>
-
-<a class="btn btn-primary" href="/#/createreport?id={{ result.id }}">Envoyer un rapport</a>
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ result.title }}</mat-card-title>
+    </mat-card-header>
+    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content>
+        <p>Description: {{ result.description }}</p>
+        <p>Pricing: {{ result.pricing }}</p>
+        <p>Scope: {{ result.scope }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button id="buttons"><a href="/#/createreport?id={{ result.id }}">Envoyer un rapport</a></button>
+    </mat-card-actions>
+</mat-card>
