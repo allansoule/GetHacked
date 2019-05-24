@@ -10,8 +10,8 @@ import { Requests } from 'app/requests/requests';
 })
 export class RequestsComponent implements OnInit {
     result: Requests[];
+    constructor(private modalService: NgbModal, private requestsService: RequestsService) {}
     ngOnInit() {
         this.requestsService.getRequests().subscribe(res => (this.result = res));
     }
-    constructor(private modalService: NgbModal, private requestsService: RequestsService) {}
 }

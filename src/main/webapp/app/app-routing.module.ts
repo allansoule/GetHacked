@@ -8,6 +8,7 @@ import { CREATE_REPORT_ROUTE } from 'app/reports/reports.route';
 import { SELECT_REPORTS_ROUTE } from 'app/select-reports/select-reports-route';
 import { REQUESTDETAIL_ROUTE } from 'app/request-detail/request-detail.route';
 import { FEATURE_ROUTES } from 'app/features/features.route';
+import { MYREQUESTS_ROUTE } from 'app/my-requests/my-requests.route';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -20,6 +21,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                 CREATE_REPORT_ROUTE,
                 SELECT_REPORTS_ROUTE,
                 REQUESTDETAIL_ROUTE,
+                MYREQUESTS_ROUTE,
                 ...FEATURE_ROUTES,
                 {
                     path: 'admin',

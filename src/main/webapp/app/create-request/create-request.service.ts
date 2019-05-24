@@ -2,15 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { HttpClient } from '@angular/common/http';
-import { IRequest } from 'app/shared/model/request.model';
 import { HttpHeaders } from '@angular/common/http';
 import { CreateRequest } from 'app/create-request/CreateRequest';
 import { NgForm } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Moment } from 'moment';
 import moment = require('moment');
 
 const httpOptions = {
@@ -23,7 +17,6 @@ const httpOptions = {
 })
 export class CreateRequestService {
     myJSONObject: CreateRequest;
-    receivedJSON: JSON;
     modifiedJSON: string;
     constructor(private http: HttpClient) {}
     setRequests(f: NgForm) {
