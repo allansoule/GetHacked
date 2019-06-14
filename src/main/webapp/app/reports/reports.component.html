@@ -1,11 +1,27 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <label>Titre</label>
-    <input type="text" class="form-control" name="title" ngModel>
-    <br>
-    <label>Contenu du rapport</label>
-    <textarea type="text" class="form-control" name="body" ngModel></textarea>
-    <br>
+<div id="all">
+<form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="Title" name="title" ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Content" name="body" rows="5" ngModel></textarea>
+        </mat-form-field>
+    </div>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
-    <h1>{{ result.title }}</h1>
-    <p>{{ result.id }}</p>
 </form>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ result.title }}</mat-card-title>
+    </mat-card-header>
+    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content>
+        <p>Description: {{ result.description }}</p>
+        <p>Pricing: {{ result.pricing }}</p>
+        <p>Scope: {{ result.scope }}</p>
+    </mat-card-content>
+</mat-card>
+</div>

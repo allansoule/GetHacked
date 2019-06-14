@@ -36,4 +36,7 @@ export class ReportsService {
             }
         );
     }
+    getRequestDetail(id): Observable<any> {
+        return this.http.get(SERVER_API_URL + '/api/requests/' + id);
+    }
 }

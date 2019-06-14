@@ -7,17 +7,19 @@ import { Request } from 'app/shared/model/request.model';
 @Component({
     selector: 'jhi-reports',
     templateUrl: './reports.component.html',
-    styles: []
+    styleUrls: ['reports.css']
 })
 export class ReportsComponent implements OnInit {
     idRequest: number;
     result: Request;
-    onSubmit(form: NgForm) {
+    constructor(private service: ReportsService, private activatedRoute: ActivatedRoute) {}
+    ngOnInit() {
         this.activatedRoute.queryParams.subscribe(params => {
             this.idRequest = params['id'];
         });
+        this.service.getRequestDetail(this.idRequest).subscribe(res => (this.result = res));
+    }
+    onSubmit(form: NgForm) {
         this.service.setReport(form.value, this.idRequest);
     }
-    ngOnInit() {}
-    constructor(private service: ReportsService, private activatedRoute: ActivatedRoute) {}
 }
