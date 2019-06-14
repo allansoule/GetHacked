@@ -157,6 +157,10 @@ public class RequestResource {
                     Predicate p = cb.equal(root.get(Request_.title), search.title);
                     res = (res == null) ? p : cb.and(res,p);
                 }
+                if (search.description != null){
+                    Predicate p = cb.like(root.get(Request_.description), "%"+search.description+"%");
+                    res = (res == null) ? p : cb.and(res,p);
+                }
                 return res;
 
             }

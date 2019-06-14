@@ -11,6 +11,7 @@ export class CreateRequestComponent implements OnInit {
     onSubmit(form: NgForm) {
         return this.service.setRequests(form.value);
     }
+
     ngOnInit() {}
     constructor(private service: CreateRequestService) {}
 }
