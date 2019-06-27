@@ -68,6 +68,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MyReportsComponent } from './my-reports/my-reports.component';
 
 @NgModule({
     imports: [
@@ -141,7 +142,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         SelectReportsComponent,
         RequestDetailComponent,
         RegisterThirdpartyComponent,
-        MyRequestsComponent
+        MyRequestsComponent,
+        MyReportsComponent
     ],
     providers: [
         {

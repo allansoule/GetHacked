@@ -1,11 +1,12 @@
 {
     "home": {
-        "title": "Bienvenue, sur GetHacked !",
+        "title": "Bienvenue sur GetHacked !",
         "subtitle": "",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },
-        "goal": "Posez vos annonces en tant qu'entreprise, et répondez y en tant que hacker.",
+        "goalEnterprise": "Entreprise ? Faites tester la sécurité de vos applications en ligne !",
+        "goalHacker": "Passionné(e) de la sécurité ? Rejoignez notre équipe d'experts et démarquez-vous auprès des entreprises !",
         "link": {
             "homepage": "Page d'accueil de JHipster",
             "stackoverflow": "JHipster sur Stack Overflow",

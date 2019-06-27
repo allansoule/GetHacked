@@ -17,6 +17,4 @@ export class RequestsComponent implements OnInit {
     search(f) {
         console.log(this.requestsService.searchRequest(f.value).subscribe(res => (this.result = res)));
     }
-
-    constructor(private modalService: NgbModal, private requestsService: RequestsService) {}
 }

@@ -135,5 +135,5 @@
         "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'ID !",
         "idnull": "Invalid ID"
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "Application développée par Allan Soulé, Côme Bellini et Mégane Dabin - LP CSID promotion 2019"
 }

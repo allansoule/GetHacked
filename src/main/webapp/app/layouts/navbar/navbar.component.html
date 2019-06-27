@@ -1,7 +1,7 @@
-<nav class="navbar navbar-light navbar-expand-md" style="background-color: #3e8acc;">
+<nav class="navbar navbar-dark navbar-expand-md" style="background: linear-gradient(105deg, #6e99e6, #093c94);">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-        <img src="navbar_logo.png" width="30" height="30" alt="">
-        <span jhiTranslate="global.title" class="navbar-title">GetHacked</span>
+        <img src="navbar_logo.png" width="50" alt="">
+        <span class="navbar-title">GetHacked</span>
     </a>
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
@@ -21,6 +21,22 @@
                     <span class="onglet">
                         <mat-icon>list</mat-icon>
                         <span>Les annonces</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="my-requests" (click)="collapseNavbar()">
+                    <span class="onglet">
+                        <mat-icon>list</mat-icon>
+                        <span>Mes annonces</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="my-reports" (click)="collapseNavbar()">
+                    <span class="onglet">
+                        <mat-icon>send</mat-icon>
+                        <span>Mes rapports</span>
                     </span>
                 </a>
             </li>

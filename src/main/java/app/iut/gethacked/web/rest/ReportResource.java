@@ -1,7 +1,9 @@
 package app.iut.gethacked.web.rest;
 import app.iut.gethacked.domain.Report;
+import app.iut.gethacked.domain.Request;
 import app.iut.gethacked.repository.ReportRepository;
 import app.iut.gethacked.repository.RequestRepository;
+import app.iut.gethacked.repository.ThirdPartyRepository;
 import app.iut.gethacked.service.ThirdpartyService;
 import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
@@ -33,10 +35,13 @@ public class ReportResource {
 
     private final RequestRepository requestRepository;
 
-    public ReportResource(ReportRepository reportRepository,RequestRepository requestRepository,ThirdpartyService thirdpartyService) {
+    private final ThirdPartyRepository thirdpartyRepository;
+
+    public ReportResource(ReportRepository reportRepository,RequestRepository requestRepository,ThirdpartyService thirdpartyService,ThirdPartyRepository thirdpartyRepository) {
         this.reportRepository = reportRepository;
         this.requestRepository = requestRepository;
         this.thirdpartyService = thirdpartyService;
+        this.thirdpartyRepository = thirdpartyRepository;
     }
 
     /**
@@ -135,4 +140,15 @@ public class ReportResource {
         reportRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/reports/thirdparty/{id}")
+    public List<Report> getReportsByThirdparty(@PathVariable Long id) {
+        return reportRepository.findReportsByThirdparty(thirdpartyRepository.findById(id).get());
+    }
+
+    @GetMapping("/reports/request/{id}")
+    public Request getRequestReport(@PathVariable Long id) {
+        return reportRepository.findRequestReport(id);
+    }
+
 }
