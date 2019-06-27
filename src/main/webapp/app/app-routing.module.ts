@@ -10,6 +10,7 @@ import { REQUESTDETAIL_ROUTE } from 'app/request-detail/request-detail.route';
 import { FEATURE_ROUTES } from 'app/features/features.route';
 import { MYREQUESTS_ROUTE } from 'app/my-requests/my-requests.route';
 import { MYREPORTS_ROUTE } from 'app/my-reports/my-reports.route';
+import { REPORTCONTENT_ROUTE } from 'app/report-content/report-content.route';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -24,6 +25,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                 REQUESTDETAIL_ROUTE,
                 MYREQUESTS_ROUTE,
                 MYREPORTS_ROUTE,
+                REPORTCONTENT_ROUTE,
                 ...FEATURE_ROUTES,
                 {
                     path: 'admin',

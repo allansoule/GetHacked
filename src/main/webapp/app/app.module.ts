@@ -69,6 +69,7 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyReportsComponent } from './my-reports/my-reports.component';
+import { ReportContentComponent } from './report-content/report-content.component';
 
 @NgModule({
     imports: [
@@ -143,7 +144,8 @@ import { MyReportsComponent } from './my-reports/my-reports.component';
         RequestDetailComponent,
         RegisterThirdpartyComponent,
         MyRequestsComponent,
-        MyReportsComponent
+        MyReportsComponent,
+        ReportContentComponent
     ],
     providers: [
         {
