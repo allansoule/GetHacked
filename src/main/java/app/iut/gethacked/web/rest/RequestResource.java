@@ -22,8 +22,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * REST controller for managing Request.
@@ -121,6 +120,17 @@ public class RequestResource {
         log.debug("REST request to get Request : {}", id);
         List<Report> request = reportRepository.findReportsForRequest(requestRepository.findById(id).get());
         return request;
+    }
+
+    @GetMapping("/requests/reports/third-party")
+    public Set<Request> getRequestByReportsThirdParty() throws URISyntaxException {
+        Set<Request> requestsList = new HashSet<>();
+
+        for (Report r : reportRepository.findReportsByThirdparty(thirdPartyService.thirdpartyOfCurrentUser())) {
+            Request request = reportRepository.findRequestReport(r.getId());
+            requestsList.add(request);
+        }
+        return requestsList;
     }
 
     /**

@@ -5,6 +5,7 @@ import app.iut.gethacked.GetHackedApp;
 import app.iut.gethacked.domain.Report;
 import app.iut.gethacked.repository.ReportRepository;
 import app.iut.gethacked.repository.RequestRepository;
+import app.iut.gethacked.repository.ThirdPartyRepository;
 import app.iut.gethacked.service.ThirdpartyService;
 import app.iut.gethacked.web.rest.errors.ExceptionTranslator;
 
@@ -63,6 +64,9 @@ public class ReportResourceIntTest {
     private ThirdpartyService thirdpartyService;
 
     @Autowired
+    private ThirdPartyRepository thirdPartyRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -84,7 +88,7 @@ public class ReportResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ReportResource reportResource = new ReportResource(reportRepository,requestRepository,thirdpartyService);
+        final ReportResource reportResource = new ReportResource(reportRepository,requestRepository,thirdpartyService,thirdPartyRepository);
         this.restReportMockMvc = MockMvcBuilders.standaloneSetup(reportResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

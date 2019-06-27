@@ -1,5 +1,6 @@
 package app.iut.gethacked.repository;
 
+import app.iut.gethacked.domain.Report;
 import app.iut.gethacked.domain.Request;
 import app.iut.gethacked.domain.ThirdParty;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -20,4 +22,7 @@ public interface RequestRepository extends JpaRepository<Request, Long>, JpaSpec
 
     @Query("select request from Request request where request.thirdParty = :thirdParty")
     List<Request> findRequestByThirdParty(@Param("thirdParty") ThirdParty thirdParty);
+
+    @Query("select request from Request request where request.reports = :reports")
+    Request findRequestByReport(@Param("reports") Report report);
 }

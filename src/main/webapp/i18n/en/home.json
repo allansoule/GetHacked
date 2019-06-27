@@ -6,7 +6,7 @@
             "message": "You are logged in as user \"{{username}}\"."
         },
         "goalEnterprise": "Company ? Test the security of your online applications!",
-        "goalHacker": "Passionate about security? Join the community and stand out from the companies!",
+        "goalHacker": "Passionate about security? Join our team of experts and stand out from the companies!",
         "link": {
             "homepage": "JHipster homepage",
             "stackoverflow": "JHipster on Stack Overflow",

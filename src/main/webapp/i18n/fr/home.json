@@ -6,7 +6,7 @@
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },
         "goalEnterprise": "Entreprise ? Faites tester la sécurité de vos applications en ligne !",
-        "goalHacker": "Passionné de la sécurité ? Rejoignez la communauté et démarquez-vous auprès des entreprises !",
+        "goalHacker": "Passionné(e) de la sécurité ? Rejoignez notre équipe d'experts et démarquez-vous auprès des entreprises !",
         "link": {
             "homepage": "Page d'accueil de JHipster",
             "stackoverflow": "JHipster sur Stack Overflow",
