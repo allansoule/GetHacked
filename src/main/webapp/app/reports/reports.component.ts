@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { ReportsService } from 'app/reports/reports.service';
 import { ActivatedRoute } from '@angular/router';
 import { Request } from 'app/shared/model/request.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'jhi-reports',
@@ -11,6 +12,7 @@ import { Request } from 'app/shared/model/request.model';
 })
 export class ReportsComponent implements OnInit {
     idRequest: number;
+    body: NgModel;
     result: Request;
     constructor(private service: ReportsService, private activatedRoute: ActivatedRoute) {}
     ngOnInit() {
@@ -20,6 +22,7 @@ export class ReportsComponent implements OnInit {
         this.service.getRequestDetail(this.idRequest).subscribe(res => (this.result = res));
     }
     onSubmit(form: NgForm) {
+        console.log(this.body);
         this.service.setReport(form.value, this.idRequest);
     }
 }

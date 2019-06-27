@@ -5,6 +5,7 @@ export class Reports {
     id: number;
     title: string;
     body: string;
+    reportFile: number[];
     date?: Moment;
     request: IRequest;
 }

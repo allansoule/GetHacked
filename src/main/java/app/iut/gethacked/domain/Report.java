@@ -31,6 +31,13 @@ public class Report implements Serializable {
     @Column(name = "jhi_body")
     private String body;
 
+    @Lob
+    @Column(name = "report_file")
+    private byte[] reportFile;
+
+    @Column(name = "report_file_content_type")
+    private String reportFileContentType;
+
     @ManyToOne
     @JsonIgnoreProperties("reports")
     private ThirdParty thirdParty;
@@ -87,6 +94,32 @@ public class Report implements Serializable {
         this.body = body;
     }
 
+    public byte[] getReportFile() {
+        return reportFile;
+    }
+
+    public Report reportFile(byte[] reportFile) {
+        this.reportFile = reportFile;
+        return this;
+    }
+
+    public void setReportFile(byte[] reportFile) {
+        this.reportFile = reportFile;
+    }
+
+    public String getReportFileContentType() {
+        return reportFileContentType;
+    }
+
+    public Report reportFileContentType(String reportFileContentType) {
+        this.reportFileContentType = reportFileContentType;
+        return this;
+    }
+
+    public void setReportFileContentType(String reportFileContentType) {
+        this.reportFileContentType = reportFileContentType;
+    }
+
     public ThirdParty getThirdParty() {
         return thirdParty;
     }
@@ -141,6 +174,8 @@ public class Report implements Serializable {
             ", title='" + getTitle() + "'" +
             ", date='" + getDate() + "'" +
             ", body='" + getBody() + "'" +
+            ", reportFile='" + getReportFile() + "'" +
+            ", reportFileContentType='" + getReportFileContentType() + "'" +
             "}";
     }
 }

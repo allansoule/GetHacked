@@ -1,10 +1,10 @@
 import './vendor.ts';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
+import { FormsModule } from '@angular/forms';
 import { NgJhipsterModule } from 'ng-jhipster';
 import { GethackedService } from 'app/features/gethacked.service';
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
@@ -66,9 +66,14 @@ import { MatTableModule } from '@angular/material/table';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { NgxEditorModule } from 'ngx-editor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     imports: [
+        NgxEditorModule,
+        FontAwesomeModule,
+        FormsModule,
         BrowserModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         NgJhipsterModule.forRoot({

@@ -1,13 +1,19 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div id="all">
-<form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
     <div class="example-container">
         <mat-form-field>
             <input matInput placeholder="Title" name="title" ngModel>
         </mat-form-field>
 
-        <mat-form-field>
+   <!--<mat-form-field>
             <textarea matInput placeholder="Content" name="body" rows="5" ngModel></textarea>
-        </mat-form-field>
+        </mat-form-field> -->
+
+        <app-ngx-editor name="body" [placeholder]="'Enter text here...'" [spellcheck]="true" ngModel></app-ngx-editor>
+
     </div>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
 </form>

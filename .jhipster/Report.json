@@ -1,5 +1,24 @@
 {
-    "name": "Report",
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "thirdParty",
+            "otherEntityRelationshipName": "report",
+            "relationshipName": "thirdParty",
+            "otherEntityField": "id",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "request",
+            "otherEntityRelationshipName": "report",
+            "relationshipName": "request",
+            "otherEntityField": "id",
+            "otherEntityRelationshipNameUndefined": false
+        }
+    ],
     "fields": [
         {
             "fieldName": "title",
@@ -12,31 +31,19 @@
         {
             "fieldName": "body",
             "fieldType": "String"
-        }
-    ],
-    "relationships": [
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "thirdParty",
-            "otherEntityRelationshipName": "report",
-            "relationshipName": "thirdParty",
-            "otherEntityField": "id"
         },
         {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "request",
-            "otherEntityRelationshipName": "report",
-            "relationshipName": "request",
-            "otherEntityField": "id"
+            "fieldName": "reportFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
         }
     ],
     "changelogDate": "20190418141641",
-    "entityTableName": "report",
     "dto": "no",
-    "pagination": "no",
+    "searchEngine": false,
     "service": "no",
+    "entityTableName": "report",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "clientRootFolder": "",
-    "applications": "*"
+    "pagination": "no"
 }

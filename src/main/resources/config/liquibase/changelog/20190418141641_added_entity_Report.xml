@@ -34,6 +34,13 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="report_file" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="report_file_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="third_party_id" type="bigint">
                 <constraints nullable="true" />
             </column>
