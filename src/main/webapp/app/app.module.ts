@@ -66,6 +66,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { MyReportsComponent } from './my-reports/my-reports.component';
 
 @NgModule({
     imports: [
@@ -136,7 +137,8 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
         SelectReportsComponent,
         RequestDetailComponent,
         RegisterThirdpartyComponent,
-        MyRequestsComponent
+        MyRequestsComponent,
+        MyReportsComponent
     ],
     providers: [
         {
