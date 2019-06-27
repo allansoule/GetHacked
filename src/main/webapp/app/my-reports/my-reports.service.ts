@@ -10,6 +10,6 @@ export class MyReportsService {
     constructor(private http: HttpClient) {}
 
     getRequestByReportsThirdparty(): Observable<any> {
-        return this.http.get(SERVER_API_URL + '/requests/reports/third-party/{id}');
+        return this.http.get(SERVER_API_URL + '/api/requests/reports/third-party');
     }
 }
