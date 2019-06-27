@@ -53,7 +53,6 @@ public class RequestResource {
      */
     @PostMapping("/requests")
     public ResponseEntity<Request> createRequest(@RequestBody Request request) throws URISyntaxException {
-        log.debug("REST request to save Request : {}", request);
         if (request.getId() != null) {
             throw new BadRequestAlertException("A new request cannot already have an ID", ENTITY_NAME, "idexists");
         }
@@ -70,9 +69,9 @@ public class RequestResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new request, or with status 400 (Bad Request) if the request has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @GetMapping("/requests/third-party/{id}")
-    public List<Request> getRequestByThirdParty(@PathVariable long id) throws URISyntaxException {
-        return requestRepository.findRequestByThirdParty(thirdPartyRepository.findById(id).get());
+    @GetMapping("/requests/third-party")
+    public List<Request> getRequestByThirdParty() throws URISyntaxException {
+        return requestRepository.findRequestByThirdParty(thirdPartyService.thirdpartyOfCurrentUser());
     }
 
     /**
