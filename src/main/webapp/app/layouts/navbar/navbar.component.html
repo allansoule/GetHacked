@@ -16,7 +16,7 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_PENTESTER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="requests" (click)="collapseNavbar()">
                     <span class="onglet">
                         <mat-icon>list</mat-icon>
@@ -24,7 +24,7 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_COMPANY'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="my-requests" (click)="collapseNavbar()">
                     <span class="onglet">
                         <mat-icon>list</mat-icon>
@@ -32,7 +32,7 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_PENTESTER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="my-reports" (click)="collapseNavbar()">
                     <span class="onglet">
                         <mat-icon>send</mat-icon>
@@ -40,7 +40,7 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_COMPANY'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="createrequest" (click)="collapseNavbar()">
                     <span class="onglet">
                         <mat-icon>add</mat-icon>

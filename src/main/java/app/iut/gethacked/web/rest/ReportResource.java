@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * REST controller for managing Report.
@@ -117,22 +115,6 @@ public class ReportResource {
         log.debug("REST request to get all SelectReports");
         return reportRepository.findAll();
     }
-
-    /**
-     * GET  /reports : get all the reports.
-     *
-     * @return the ResponseEntity with status 200 (OK) and the list of reports in body
-     */
-    @GetMapping("/reports/request/thirdParty")
-    public Set<Report> getReportsByRequestThirdParty() {
-        Set<Report> reportList = new HashSet<>();
-
-        for (Report r : reportRepository.findReportsByThirdparty(thirdpartyService.thirdpartyOfCurrentUser())) {
-            reportList.add(r);
-        }
-        return reportList;
-    }
-
 
 
     /**

@@ -7,7 +7,6 @@ import app.iut.gethacked.repository.RequestRepository;
 import app.iut.gethacked.repository.ThirdPartyRepository;
 import app.iut.gethacked.service.ThirdpartyService;
 import app.iut.gethacked.service.dto.SearchCriteriaDTO;
-import app.iut.gethacked.web.rest.errors.BadRequestAlertException;
 import app.iut.gethacked.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -22,7 +21,10 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing Request.
@@ -53,9 +55,6 @@ public class RequestResource {
      */
     @PostMapping("/requests")
     public ResponseEntity<Request> createRequest(@RequestBody Request request) throws URISyntaxException {
-        if (request.getId() != null) {
-            throw new BadRequestAlertException("A new request cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         request.setThirdParty(thirdPartyService.thirdpartyOfCurrentUser());
         Request result = requestRepository.save(request);
         return ResponseEntity.created(new URI("/api/requests/" + result.getId()))
@@ -88,27 +87,6 @@ public class RequestResource {
     }
 
     /**
-     * PUT  /requests : Updates an existing request.
-     *
-     * @param request the request to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated request,
-     * or with status 400 (Bad Request) if the request is not valid,
-     * or with status 500 (Internal Server Error) if the request couldn't be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
-     */
-    @PutMapping("/requests")
-    public ResponseEntity<Request> updateRequest(@RequestBody Request request) throws URISyntaxException {
-        log.debug("REST request to update Request : {}", request);
-        if (request.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        Request result = requestRepository.save(request);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, request.getId().toString()))
-            .body(result);
-    }
-
-    /**
      * GET  /requests/:id : get the "id" request.
      *
      * @param id the id of the request to retrieve
@@ -116,7 +94,6 @@ public class RequestResource {
      */
     @GetMapping("/requests/reports/{id}")
     public List<Report> getReportsFromRequest(@PathVariable Long id) {
-        log.debug("REST request to get Request : {}", id);
         List<Report> request = reportRepository.findReportsForRequest(requestRepository.findById(id).get());
         return request;
     }
@@ -139,7 +116,6 @@ public class RequestResource {
      */
     @GetMapping("/requests")
     public List<Request> getAllRequests() {
-        log.debug("REST request to get all Requests");
         return requestRepository.findAll();
     }
 
@@ -188,7 +164,6 @@ public class RequestResource {
      */
     @DeleteMapping("/requests/{id}")
     public ResponseEntity<Void> deleteRequest(@PathVariable Long id) {
-        log.debug("REST request to delete Request : {}", id);
         requestRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }

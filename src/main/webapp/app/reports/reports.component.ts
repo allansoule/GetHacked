@@ -14,6 +14,7 @@ export class ReportsComponent implements OnInit {
     idRequest: number;
     body: NgModel;
     result: Request;
+    currentRate = 5;
     constructor(private service: ReportsService, private activatedRoute: ActivatedRoute) {}
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe(params => {

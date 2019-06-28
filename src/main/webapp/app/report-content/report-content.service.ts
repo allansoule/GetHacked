@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class ReportContentService {
+    request: Request;
     constructor(private http: HttpClient) {}
-
-    //getRequestByReportsThirdparty(): Observable<any> {
-    //    return this.http.get(SERVER_API_URL + '/api/requests/reports/third-party');
-    //}
+    getReportsByThirdparty(id: Number): Observable<any> {
+        return this.http.get(SERVER_API_URL + '/api/reports/request/thirdParty' + id);
+    }
 }

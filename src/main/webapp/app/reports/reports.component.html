@@ -14,7 +14,11 @@
 
         <app-ngx-editor name="body" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="body"></app-ngx-editor>
 
+
     </div>
+    <ngb-rating [(rate)]="currentRate"></ngb-rating>
+    <hr>
+    <pre>Note attribuée: <b>{{currentRate}}</b></pre>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
 </form>
 

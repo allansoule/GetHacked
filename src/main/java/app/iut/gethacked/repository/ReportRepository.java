@@ -28,6 +28,9 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
     @Query("select report from Report report where report.thirdParty = :thirdparty")
     List<Report> findReportsByThirdparty(@Param("thirdparty")ThirdParty thirdParty);
 
+    @Query("select report from Report report where report.request = :request")
+    List<Report> findReportsByRequestThirdParty(@Param("request")Request request);
+
     @Query("select request from Report report where report.id = :id")
     Request findRequestReport(@Param("id")Long id);
 
