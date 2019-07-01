@@ -70,6 +70,8 @@ import { NgxEditorModule } from 'ngx-editor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyReportsComponent } from './my-reports/my-reports.component';
 import { ReportContentComponent } from './report-content/report-content.component';
+import { RequeststemplateComponent } from './requeststemplate/requeststemplate.component';
+import { ReportstemplateComponent } from './reportstemplate/reportstemplate.component';
 
 @NgModule({
     imports: [
@@ -145,7 +147,9 @@ import { ReportContentComponent } from './report-content/report-content.componen
         RegisterThirdpartyComponent,
         MyRequestsComponent,
         MyReportsComponent,
-        ReportContentComponent
+        ReportContentComponent,
+        RequeststemplateComponent,
+        ReportstemplateComponent
     ],
     providers: [
         {

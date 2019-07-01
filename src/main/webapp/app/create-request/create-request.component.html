@@ -1,9 +1,9 @@
 <jhi-alert></jhi-alert>
-
+<h1> Création d'une annonce</h1>
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="example-container">
         <mat-form-field>
-            <input matInput placeholder="Title" name="title" ngModel>
+            <input matInput placeholder="Titre de l'annonce" name="title" ngModel>
         </mat-form-field>
 
         <mat-form-field>
@@ -11,7 +11,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <textarea matInput placeholder="Description" name="description" rows="5" ngModel></textarea>
+            <textarea matInput placeholder="Description de l'annonce" name="description" rows="5" ngModel></textarea>
         </mat-form-field>
 
         <mat-form-field>

@@ -10,6 +10,6 @@
         <p>Scope: {{ result.scope }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button id="buttons"><a href="/#/createreport?id={{ result.id }}">Envoyer un rapport</a></button>
+        <button mat-button id="buttons" *jhiHasAnyAuthority="'ROLE_PENTESTER'"><a href="/#/createreport?id={{ result.id }}">Envoyer un rapport</a></button>
     </mat-card-actions>
 </mat-card>

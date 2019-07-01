@@ -6,7 +6,7 @@
                 "createLabel": "Create a new Request",
                 "createOrEditLabel": "Create or edit a Request"
             },
-            "created": "A new Request is created with identifier {{ param }}",
+            "created": "Your request has been posted",
             "updated": "A Request is updated with identifier {{ param }}",
             "deleted": "A Request is deleted with identifier {{ param }}",
             "delete": {
