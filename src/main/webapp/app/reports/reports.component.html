@@ -1,27 +1,27 @@
-<h1> Envoi d'un rapport </h1>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="test">
+    <h1> Envoi d'un rapport </h1>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div id="all">
-<form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
-    <div class="example-container">
-        <mat-form-field>
-            <input matInput placeholder="Title" name="title" ngModel>
-        </mat-form-field>
+    <div id="all">
+    <form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
+        <div class="example-container">
+            <mat-form-field>
+                <input matInput placeholder="Title" name="title" ngModel>
+            </mat-form-field>
 
-   <!--<mat-form-field>
-            <textarea matInput placeholder="Content" name="body" rows="5" ngModel></textarea>
-        </mat-form-field> -->
+       <!--<mat-form-field>
+                <textarea matInput placeholder="Content" name="body" rows="5" ngModel></textarea>
+            </mat-form-field> -->
 
-        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" name="body" ngModel></app-ngx-editor>
+            <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" name="body" ngModel></app-ngx-editor>
 
 
-    </div>
-    <ngb-rating [(rate)]="currentRate"></ngb-rating>
-    <hr>
-    <pre>Note attribuée: <b>{{currentRate}}</b></pre>
-    <button class="btn btn-primary" type="submit">Enregistrer</button>
-</form>
-
+        </div>
+        <ngb-rating [(rate)]="currentRate"></ngb-rating>
+        <hr>
+        <pre>Note attribuée: <b>{{currentRate}}</b></pre>
+        <button class="btn btn-primary" type="submit">Enregistrer</button>
+    </form>
 <mat-card class="example-card">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -33,4 +33,5 @@
         <p>Scope: {{ result.scope }}</p>
     </mat-card-content>
 </mat-card>
+</div>
 </div>

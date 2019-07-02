@@ -1,0 +1,12 @@
+.test {
+    background: #e0e0e0;
+    border-radius: 5px;
+    width: 80%;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+}
+
+p {
+    text-align: left;
+}

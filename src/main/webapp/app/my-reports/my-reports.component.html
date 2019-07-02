@@ -1,22 +1,27 @@
-<mat-card class="example-card" *ngFor="let req of result">
-    <div class="card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ req.title }}</mat-card-title>
-        </mat-card-header>
-    </div>
-    <div class="card">
-        <mat-card-content>
-            <p>
-                {{ req.description }}
-            </p>
-        </mat-card-content>
-    </div>
-    <div class="card">
-        <div id="buttons">
-            <mat-card-actions>
-                <button mat-button><a href="/#/reportstemplate">See More</a></button>
-            </mat-card-actions>
+<div class="test">
+    <h1>Mes annonces traitées</h1>
+    <mat-card class="example-card"> <!--*ngFor="let req of result"-->
+        <div class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Rapport Exemple</mat-card-title>
+            </mat-card-header>
         </div>
-    </div>
-</mat-card>
+        <div class="card">
+            <mat-card-content>
+                <p>Quam ob rem id primum videamus, si placet, quatenus amor in amicitia progredi debeat. Numne, si Coriolanus habuit amicos, ferre contra patriam arma illi cum Coriolano debuerunt? num Vecellinum amici regnum adpetentem, num Maelium debuerunt iuvare?</p>
+
+                <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus, in quibus diutius commorati sumus.</p>
+
+                <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+            </mat-card-content>
+        </div>
+        <div class="card">
+            <div id="buttons">
+                <mat-card-actions>
+                    <button mat-button><a href="/#/reportstemplate">Visualiser mon rapport</a></button>
+                </mat-card-actions>
+            </div>
+        </div>
+    </mat-card>
+</div>

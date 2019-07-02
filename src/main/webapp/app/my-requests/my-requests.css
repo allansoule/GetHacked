@@ -4,7 +4,7 @@
     justify-content: space-between;
     margin: 10px;
     background: #eeeeee;
-    width: 70%;
+    text-align: left;
 }
 
 .example-header-image {
@@ -22,15 +22,16 @@ img {
     background: #eeeeee;
 }
 
-#buttons {
+.buttons {
     position: absolute;
     right: 0px;
-    bottom: 0px;
+    bottom: -20px;
 }
 
 .example-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .example-container > * {
@@ -48,4 +49,13 @@ input.example-right-align::-webkit-inner-spin-button {
 
 input.example-right-align {
     -moz-appearance: textfield;
+}
+
+.test {
+    background: #e0e0e0;
+    border-radius: 5px;
+    width: 60%;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
 }

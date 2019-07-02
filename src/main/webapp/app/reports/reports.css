@@ -1,6 +1,7 @@
 #all {
     display: flex;
     justify-content: space-between;
+    text-align: left;
 }
 
 #form {
@@ -13,7 +14,7 @@
 }
 
 .example-card {
-    margin: 10px;
+    margin: 50px auto auto auto;
     background: #eeeeee;
     width: 40%;
 }
@@ -45,4 +46,13 @@ input.example-right-align {
 
 .ngx-editor-textarea {
     min-height: 200px;
+}
+
+.test {
+    background: #e0e0e0;
+    border-radius: 5px;
+    width: 80%;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
 }
